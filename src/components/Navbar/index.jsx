@@ -17,7 +17,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <h1>Navbar</h1>
+            {value < 4 ? <h1>Navbar</h1> : value < 6 ? <p>Lo siento no es lo que queria mostrar</p> : <h1>Bienvenido a la app</h1>}
         </div>
     )   
 
