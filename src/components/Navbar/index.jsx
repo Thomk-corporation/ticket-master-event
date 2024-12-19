@@ -1,11 +1,24 @@
-
-
+import { useState } from "react";
 
 function Navbar(){
+    const [search ,setSearch] = useState("")
+
+    function handleInputChange(event){
+        console.log("Capture event of tarjet input ",event)
+        
+        console.log("Capture event of tarjet input ",event.target.value)
+        setSearch(event.target.value)
+    }
+
+
     return (
         <div>
-            <p>My ticket search</p>
-            <input placeholder="Search something" />
+            <p>My Tickec Office</p>
+            <input 
+                placeholder="Search your events" 
+                onChange={handleInputChange}
+                value= {search}                
+            />
         </div>
     )      
 }
