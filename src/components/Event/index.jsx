@@ -3,23 +3,9 @@ import dataEvents  from "../../data/events.json"
 import EventItem from "./component/EventItem";
 
 
-
-
-
-
-
 function Event(){
-
     const [data]= useState(dataEvents)
     const {events } = data._embedded
-
-  
-
-  
-
-  
-
-
         return (
             <div>
           

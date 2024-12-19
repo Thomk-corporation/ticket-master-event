@@ -1,8 +1,8 @@
-const EventItem = ({name,image , info}) => {
+function EventItem({name,image , info}) {
     return (
         <div>
             <img src={image} alt={name} width={150} height={150}/>
-            <h2>{name}</h2>
+            <p>{name}</p>
             <p>{info}</p>
         </div>
     )
