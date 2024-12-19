@@ -1,15 +1,13 @@
 
 
 
-const Navbar = () => {     
-
+function Navbar(){
     return (
         <div>
-            <p>Navbar</p>
-            <input type="text" placeholder="Search" />
+            <p>My ticket search</p>
+            <input placeholder="Search something" />
         </div>
     )   
-
 
 
     
