@@ -7,10 +7,7 @@ function Navbar(){
             <p>My ticket search</p>
             <input placeholder="Search something" />
         </div>
-    )   
-
-
-    
+    )      
 }
 
 

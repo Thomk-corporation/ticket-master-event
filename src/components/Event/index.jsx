@@ -1,34 +1,38 @@
+import { useState } from "react";
+import dataEvents  from "../../data/events.json"
 import EventItem from "./component/EventItem";
-import data  from "../../data/events.json"
-
-console.log("data :,...", data)
 
 
 
 
 
-const Event = ()=>{
-
-    const events = data._embedded.events
-
-    const eventsItem = events.map(event =>( <EventItem
-        key={`event-item-${id}`}>
-           name = {event.name}
-           image = {event.images[1].url}
-           info = {event.info}
-        </EventItem>)        )
 
 
-   
+function Event(){
+
+    const [data]= useState(dataEvents)
+    const {events } = data._embedded
+
+  
+
+  
+
+  
 
 
-    
-    return(
-        <div>
-         Event
-         {eventsItem}
-        </div>
-    )
+        return (
+            <div>
+          
+                {events.map((eventItem) =>(
+                    <EventItem
+                        key={`event-item-${event.id}`}
+                        name = {eventItem.name}
+                        image = {eventItem.images[1].url}
+                        info = {eventItem.info}
+                    />     
+                ))} 
+            </div>
+        )
 
 }
 
