@@ -1,13 +1,18 @@
 import { useState } from "react";
 
-function Navbar(){
+
+function Navbar({onSearch}){
     const [search ,setSearch] = useState("")
 
-    function handleInputChange(event){
-        console.log("Capture event of tarjet input ",event)
-        
-        console.log("Capture event of tarjet input ",event.target.value)
+    function handleInputChange(event){   
         setSearch(event.target.value)
+    }
+
+    function handleInputKeyDown(event){
+        if(event.key === "Enter"){
+            console.log("Hola desde hijo",search)
+           onSearch(search)
+        }
     }
 
 
@@ -17,6 +22,7 @@ function Navbar(){
             <input 
                 placeholder="Search your events" 
                 onChange={handleInputChange}
+                onKeyDown={handleInputKeyDown}
                 value= {search}                
             />
         </div>
