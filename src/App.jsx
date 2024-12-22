@@ -8,9 +8,10 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
 
   function handleNavbarSearch(term){
-    console.log("hola")
+    setSearchTerm(term)
 
   }
+  
 
   return (
     <>

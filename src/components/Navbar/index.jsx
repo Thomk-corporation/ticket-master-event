@@ -10,7 +10,6 @@ function Navbar({onSearch}){
 
     function handleInputKeyDown(event){
         if(event.key === "Enter"){
-            console.log("Hola desde hijo",search)
            onSearch(search)
         }
     }

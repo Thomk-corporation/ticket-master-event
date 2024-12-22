@@ -4,6 +4,8 @@ import EventItem from "./component/EventItem";
 
 
 function Event({searchTerm}){
+    const [data]= useState(dataEvents)
+    const {events } = data._embedded
 
     function handleEventItemClick(id){
         console.log(`EventItem con id ${id} clicado`)	
@@ -11,6 +13,15 @@ function Event({searchTerm}){
     }
 
     function renderEvents(){
+        let eventsFiltered = events
+
+
+        if(searchTerm.length>0){
+
+            eventsFiltered = eventsFiltered.filter((item)=>item.name.toLocaleLowerCase().includes(searchTerm))
+
+        }
+
         return events.map((eventItem) =>(
             <EventItem
                 key={`event-item-${eventItem.id}`}
@@ -23,8 +34,7 @@ function Event({searchTerm}){
         ))
     }
 
-    const [data]= useState(dataEvents)
-    const {events } = data._embedded
+   
         return (
             <div >   
                 Eventos       
