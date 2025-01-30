@@ -1,82 +1,48 @@
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 function SignupForm() {
-  const [name, setName] = useState('')
-  const [age, setAge] = useState('')
-  const [address, setAddress] = useState('')
-  const [zipcode, setZipcode] = useState('')
-  const [phone, setPhone] = useState('')
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm()
 
   function handleClearClick() {
-    setName('')
-    setAge('')
-    setAddress('')
-    setZipcode('')
-    setPhone('')
+    reset()
   }
 
-  function handleSubmitForm(event) {
-    event.preventDefault()
-
-    console.log(
-      'Name:',
-      name,
-      'Age:',
-      age,
-      'Address:',
-      address,
-      'Zipcode:',
-      zipcode,
-      'Phone:',
-      phone,
-    )
+  function handleSubmitForm(data) {
+    console.log(data)
   }
+
+  console.log(errors)
 
   return (
-    <form onSubmit={handleSubmitForm}>
+    <form onSubmit={handleSubmit(handleSubmitForm)}>
       <label>
         Name
-        <input
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          required
-        />
+        <input {...register('name', { required: true })} />
       </label>
       <br />
       <label>
         Age
-        <input
-          value={age}
-          onChange={(event) => setAge(event.target.value)}
-          required
-        />
+        <input {...register('age', { required: true })} />
       </label>
       <br />
       <label>
         Address
-        <input
-          value={address}
-          onChange={(event) => setAddress(event.target.value)}
-          required
-        />
+        <input {...register('address', { required: true })} />
       </label>
       <br />
       <label>
         Zipcode
-        <input
-          value={zipcode}
-          onChange={(event) => setZipcode(event.target.value)}
-          required
-        />
+        <input {...register('zipcode', { required: true })} />
       </label>
       <br />
       <label>
         Phone
-        <input
-          value={phone}
-          onChange={(event) => setPhone(event.target.value)}
-          required
-        />
+        <input {...register('phone', { required: true })} />
       </label>
       <div>
         <button type='button' onClick={handleClearClick}>
